@@ -30,7 +30,7 @@ void Student::setPhone(string phone) {
 }
 
 
-const string Student::getRoll() const {
+string Student::getRoll() const {
     return this->roll;
 }
 

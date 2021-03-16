@@ -42,3 +42,12 @@ void StudentList::editStudent(Student &s, string name, string address, int deptC
     s.setPhone(phone);
 }
 
+QString StudentList::toString() {
+    QString s = "[\n";
+    for(auto it = this->list.begin(); it != this->list.end(); it++) {
+        s += it->toString();
+    }
+    s += "\n]";
+    return s;
+}
+
