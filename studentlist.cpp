@@ -1,12 +1,7 @@
 #include "studentlist.h"
 #include <QDebug>
 
-auto StudentList::search(string roll) {
-    auto result = find_if(this->list.begin(), this->list.end(), [&](const Student &s) { return s.getRoll() == roll; });
-    return (result == this->list.end()) ? nullopt : optional<Student>{*result};
-}
-
-auto StudentList::searchGetIndex(string roll) {
+vector<Student>::iterator StudentList::searchGetIndex(string roll) {
     auto result = find_if(this->list.begin(), this->list.end(), [&](const Student &s) { return s.getRoll() == roll; });
     return (result == this->list.end()) ? this->list.end() : result;
 }

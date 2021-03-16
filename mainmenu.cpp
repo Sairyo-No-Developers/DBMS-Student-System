@@ -15,6 +15,9 @@ MainMenu::MainMenu(QWidget *parent)
     sl.addStudent(s1);
     sl.addStudent(s2);
     qDebug().noquote() << sl.toString();
+
+    if(auto res = sl.search("CSE001"))
+        qDebug().noquote() << res->toString();
 }
 
 MainMenu::~MainMenu()

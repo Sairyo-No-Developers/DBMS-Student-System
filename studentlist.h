@@ -27,8 +27,12 @@ private:
     vector<Student> list;
 public:
     bool addStudent(Student & s);
-    auto search(string roll);
-    auto searchGetIndex(string roll);
+    auto search(string roll) {
+        auto result = find_if(this->list.begin(), this->list.end(), [&](const Student &s) { return s.getRoll() == roll; });
+        return (result == this->list.end()) ? nullopt : optional<Student>{*result};
+    }
+
+    vector<Student>::iterator searchGetIndex(string roll);
     bool deleteStudent(string roll);
     void editStudent(Student & s, string name, string address, int deptCode, string phone);
     vector<Student> displayAll();
