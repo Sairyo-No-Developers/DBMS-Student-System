@@ -4,6 +4,11 @@
 #include "studentlist.h"
 #include "addstudent.h"
 #include "studentmodel.h"
+#include "QLineEdit"
+#include "QInputDialog"
+#include "QDebug"
+#include "QMessageBox"
+#include "editstudent.h"
 
 MainMenu::MainMenu(QWidget *parent)
     : QMainWindow(parent)
@@ -41,4 +46,71 @@ void MainMenu::on_addStudent_clicked()
 void MainMenu::on_displayAll_clicked()
 {
     StudentModel::instance()->printAll();
+}
+
+void MainMenu::on_deleteStudent_clicked()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Search"),
+                                                 tr("Enter Roll Number:"), QLineEdit::Normal,
+                                                 tr(""), &ok);
+    if("ok" && !text.isEmpty())
+    {
+        bool result = StudentModel::instance()->getAndDeleteStudent(text.toStdString());
+        if (result) {
+            QMessageBox msgBox;
+            msgBox.setText("Roll " + text + " deleted successfully");
+            msgBox.exec();
+        }
+        else{
+            QMessageBox msgBox;
+            msgBox.setText("Roll doesnot exists");
+            msgBox.exec();
+        }
+    }
+}
+
+void MainMenu::on_search_clicked()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Search"),
+                                                 tr("Enter Roll Number:"), QLineEdit::Normal,
+                                                 tr(""), &ok);
+    if("ok" && !text.isEmpty())
+    {
+        Student result = StudentModel::instance()->getAndSearchStudent(text.toStdString());
+        if(result.getDeptCode()==-1)
+        {
+            QMessageBox msgBox;
+            msgBox.setText("Roll doesnot exists");
+            msgBox.exec();
+        }
+        else
+            qDebug().noquote()<<result.toString();
+    }
+}
+
+void MainMenu::on_editStudent_clicked()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Search"),
+                                                 tr("Enter Roll Number:"), QLineEdit::Normal,
+                                                 tr(""), &ok);
+    if("ok" && !text.isEmpty())
+    {
+        Student result = StudentModel::instance()->getAndSearchStudent(text.toStdString());
+        if(result.getDeptCode()==-1)
+        {
+            QMessageBox msgBox;
+            msgBox.setText("Roll doesnot exists");
+            msgBox.exec();
+        }
+        else
+        {
+            EditStudent etd_stud(this,&result);
+            etd_stud.setModal(true);
+            etd_stud.exec();
+            qDebug().noquote()<<result.toString();
+        }
+    }
 }

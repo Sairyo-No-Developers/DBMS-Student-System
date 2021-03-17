@@ -16,7 +16,7 @@ private:
 
 public:
     Student(string roll, int deptCode, string name, string address, string phone);
-
+    Student();
     void setRoll(string roll);
     string getRoll() const;
 
