@@ -23,3 +23,12 @@ void StudentModel::printAll() {
 bool StudentModel::deleteStudent(string roll) {
     return sl.deleteStudent(roll);
 }
+
+bool StudentModel::getAndEditStudent(string roll, string name, string phone, string address, int deptCode) {
+    auto it = sl.searchGetIndex(roll);
+    it->setName(name);
+    it->setPhone(phone);
+    it->setDeptCode(deptCode);
+    it->setAddress(address);
+    return true;
+}

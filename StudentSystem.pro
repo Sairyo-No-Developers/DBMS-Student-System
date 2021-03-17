@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     addstudent.cpp \
+    editstudent.cpp \
     main.cpp \
     mainmenu.cpp \
     student.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     addstudent.h \
+    editstudent.h \
     mainmenu.h \
     student.h \
     studentlist.h \
@@ -25,6 +27,7 @@ HEADERS += \
 
 FORMS += \
     addstudent.ui \
+    editstudent.ui \
     mainmenu.ui
 
 # Default rules for deployment.

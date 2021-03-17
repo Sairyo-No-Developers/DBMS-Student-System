@@ -24,6 +24,8 @@ private slots:
 
     void on_deleteStudent_clicked();
 
+    void on_editStudent_clicked();
+
 private:
     Ui::MainMenu *ui;
 };

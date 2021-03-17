@@ -17,6 +17,7 @@ public:
         return sl.search(roll);
     }
     bool deleteStudent(string roll);
+    bool getAndEditStudent(string roll, string name, string phone, string address, int deptCode);
     void printAll();
     static StudentModel *instance();
 };

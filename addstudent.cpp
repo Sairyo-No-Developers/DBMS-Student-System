@@ -38,6 +38,8 @@ void AddStudent::on_buttonBox_accepted()
         qDebug() << result;
         if (!result) {
             QMessageBox msgBox;
+            msgBox.setWindowTitle("Add Student Error");
+            msgBox.setIcon(QMessageBox::Information);
             msgBox.setText("Roll number already exists.");
             msgBox.exec();
         }
