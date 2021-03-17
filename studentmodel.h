@@ -13,6 +13,10 @@ public:
     StudentModel(StudentModel &other) = delete;
     void operator=(const StudentModel &) = delete;
     bool getAndAddStudent(string name, string roll, string address, string phone, int deptCode);
+    auto search(string roll) {
+        return sl.search(roll);
+    }
+    bool deleteStudent(string roll);
     void printAll();
     static StudentModel *instance();
 };

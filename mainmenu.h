@@ -20,6 +20,10 @@ private slots:
 
     void on_displayAll_clicked();
 
+    void on_search_clicked();
+
+    void on_deleteStudent_clicked();
+
 private:
     Ui::MainMenu *ui;
 };

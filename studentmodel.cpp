@@ -19,3 +19,7 @@ StudentModel  *StudentModel::instance() {
 void StudentModel::printAll() {
     qDebug().noquote() << sl.toString();
 }
+
+bool StudentModel::deleteStudent(string roll) {
+    return sl.deleteStudent(roll);
+}

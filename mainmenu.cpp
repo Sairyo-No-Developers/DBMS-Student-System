@@ -4,6 +4,7 @@
 #include "studentlist.h"
 #include "addstudent.h"
 #include "studentmodel.h"
+#include <QInputDialog>
 
 MainMenu::MainMenu(QWidget *parent)
     : QMainWindow(parent)
@@ -41,4 +42,34 @@ void MainMenu::on_addStudent_clicked()
 void MainMenu::on_displayAll_clicked()
 {
     StudentModel::instance()->printAll();
+}
+
+void MainMenu::on_search_clicked()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Search"),
+                                             tr("Enter Roll Number:"), QLineEdit::Normal,
+                                             tr(""), &ok);
+    if (ok && !text.isEmpty()) {
+        auto res = StudentModel::instance()->search(text.toStdString());
+        if (res == nullopt) {
+            qDebug() << "Not found";
+        } else {
+            qDebug() << res->toString();
+        }
+    }
+}
+
+void MainMenu::on_deleteStudent_clicked()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Delete"),
+                                             tr("Enter Roll Number:"), QLineEdit::Normal,
+                                             tr(""), &ok);
+    if (ok && !text.isEmpty()) {
+        auto res = StudentModel::instance()->deleteStudent(text.toStdString());
+        if (!res) {
+            qDebug() << "Not found";
+        }
+    }
 }
