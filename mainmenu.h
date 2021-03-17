@@ -15,6 +15,11 @@ public:
     MainMenu(QWidget *parent = nullptr);
     ~MainMenu();
 
+private slots:
+    void on_addStudent_clicked();
+
+    void on_displayAll_clicked();
+
 private:
     Ui::MainMenu *ui;
 };

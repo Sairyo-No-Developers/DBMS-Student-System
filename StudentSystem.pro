@@ -9,17 +9,22 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addstudent.cpp \
     main.cpp \
     mainmenu.cpp \
     student.cpp \
-    studentlist.cpp
+    studentlist.cpp \
+    studentmodel.cpp
 
 HEADERS += \
+    addstudent.h \
     mainmenu.h \
     student.h \
-    studentlist.h
+    studentlist.h \
+    studentmodel.h
 
 FORMS += \
+    addstudent.ui \
     mainmenu.ui
 
 # Default rules for deployment.
