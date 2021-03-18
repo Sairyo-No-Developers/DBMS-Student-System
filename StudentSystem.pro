@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     addstudent.cpp \
+    displayall.cpp \
     editstudent.cpp \
     main.cpp \
     mainmenu.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     addstudent.h \
+    displayall.h \
     editstudent.h \
     mainmenu.h \
     student.h \
@@ -27,6 +29,7 @@ HEADERS += \
 
 FORMS += \
     addstudent.ui \
+    displayall.ui \
     editstudent.ui \
     mainmenu.ui
 

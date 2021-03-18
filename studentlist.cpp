@@ -26,7 +26,7 @@ bool StudentList::deleteStudent(string roll) {
     return true;
 }
 
-vector<Student> StudentList::displayAll() {
+vector<Student> StudentList::getList() {
     return this->list;
 }
 

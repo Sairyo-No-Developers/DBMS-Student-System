@@ -19,6 +19,7 @@ public:
     bool deleteStudent(string roll);
     bool getAndEditStudent(string roll, string name, string phone, string address, int deptCode);
     void printAll();
+    vector<Student> getStudentList();
     static StudentModel *instance();
 };
 

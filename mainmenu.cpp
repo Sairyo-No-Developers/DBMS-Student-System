@@ -5,6 +5,7 @@
 #include "addstudent.h"
 #include "studentmodel.h"
 #include "editstudent.h"
+#include "displayall.h"
 #include <QInputDialog>
 #include <QMessageBox>
 
@@ -43,7 +44,9 @@ void MainMenu::on_addStudent_clicked()
 
 void MainMenu::on_displayAll_clicked()
 {
-    StudentModel::instance()->printAll();
+    DisplayAll displayAll;
+    displayAll.setModal(true);
+    displayAll.exec();
 }
 
 void MainMenu::on_search_clicked()

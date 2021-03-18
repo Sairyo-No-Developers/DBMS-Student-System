@@ -32,3 +32,7 @@ bool StudentModel::getAndEditStudent(string roll, string name, string phone, str
     it->setAddress(address);
     return true;
 }
+
+vector<Student> StudentModel::getStudentList() {
+    return sl.getList();
+}

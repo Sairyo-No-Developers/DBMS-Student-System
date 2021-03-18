@@ -35,7 +35,7 @@ public:
     vector<Student>::iterator searchGetIndex(string roll);
     bool deleteStudent(string roll);
     void editStudent(Student & s, string name, string address, int deptCode, string phone);
-    vector<Student> displayAll();
+    vector<Student> getList();
     QString toString();
 };
 
