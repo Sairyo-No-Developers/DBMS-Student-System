@@ -8,7 +8,7 @@
 #include "displayall.h"
 #include <QInputDialog>
 #include <QMessageBox>
-
+#include "QDebug"
 MainMenu::MainMenu(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainMenu)
@@ -58,16 +58,16 @@ void MainMenu::on_search_clicked()
     if (ok && !text.isEmpty()) {
         auto res = StudentModel::instance()->search(text.toStdString());
         QMessageBox msgBox;
-        if (res == nullopt) {
+        if (res.getDeptCode()==-1) {
             qDebug() << "Not found";
             msgBox.setWindowTitle("Search Unsuccessful");
             msgBox.setIcon(QMessageBox::Information);
             msgBox.setText("Student Not Found.");
         } else {
-            qDebug().noquote() << res->toString();
+            qDebug().noquote() << res.toString();
             msgBox.setWindowTitle("Search Successful");
             msgBox.setIcon(QMessageBox::Information);
-            msgBox.setText(res->toString());
+            msgBox.setText(res.toString());
         }
         msgBox.exec();
     }
@@ -105,14 +105,14 @@ void MainMenu::on_editStudent_clicked()
     if (ok && !text.isEmpty()) {
         QMessageBox msgBox;
         auto res = StudentModel::instance()->search(text.toStdString());
-        if(res == nullopt) {
+        if(res.getDeptCode()==-1) {
             qDebug() << "Not found";
             msgBox.setWindowTitle("Edit Student Error");
             msgBox.setIcon(QMessageBox::Information);
             msgBox.setText("Student Not Found.");
             msgBox.exec();
         } else {
-            Student *s = &res.value();
+            Student *s = &res;
             EditStudent editStudent(this, s);
             editStudent.setModal(true);
             editStudent.exec();

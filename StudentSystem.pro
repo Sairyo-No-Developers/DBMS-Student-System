@@ -10,6 +10,8 @@ CONFIG += c++11
 
 SOURCES += \
     addstudent.cpp \
+    department.cpp \
+    departmentlist.cpp \
     displayall.cpp \
     editstudent.cpp \
     main.cpp \
@@ -20,6 +22,8 @@ SOURCES += \
 
 HEADERS += \
     addstudent.h \
+    department.h \
+    departmentlist.h \
     displayall.h \
     editstudent.h \
     mainmenu.h \

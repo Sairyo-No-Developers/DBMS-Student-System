@@ -51,8 +51,7 @@ const string Student::getAddress() {
 }
 
 ostream & operator << (ostream &out, const Student &s) {
-    out << "{"
-        << "\nname: " << s.name
+    out<< "name: " << s.name
         << "\nroll: " << s.roll
         << "\ndeptCode: " << s.deptCode
         << "\naddress: " << s.address
@@ -63,11 +62,15 @@ ostream & operator << (ostream &out, const Student &s) {
 }
 
 QString Student::toString() {
-    return QString::fromStdString( \
-                "{\n\tname: " + this->name
-               + "\n\troll: " + this->roll
-               + "\n\tdeptCode: " + to_string(this->deptCode)
-               + "\n\taddress: " + this->address
-               + "\n\tphone: " + this->phone
-               + "\n}" );
+    return QString::fromStdString("Roll: " + this->roll + "  Name: " + this->name + "  DeptCode: " + to_string(this->deptCode)\
+                                  + "  Address: " + this->address + "  Phone: " + this->phone + "\n\n");
 }
+//QString Student::toString() {
+//    return QString::fromStdString( \
+//                "{\n\tname: " + this->name
+//               + "\n\troll: " + this->roll
+//               + "\n\tdeptCode: " + to_string(this->deptCode)
+//               + "\n\taddress: " + this->address
+//               + "\n\tphone: " + this->phone
+//               + "\n}" );
+//}

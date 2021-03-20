@@ -8,8 +8,8 @@ vector<Student>::iterator StudentList::searchGetIndex(string roll) {
 
 bool StudentList::addStudent(Student & s) {
     auto result = search(s.getRoll());
-    if(result != nullopt) {
-        qDebug().noquote() << result->toString();
+    if(result.getDeptCode() != -1) {
+        qDebug().noquote() << result.toString();
         return false;
     }
     this->list.push_back(s);

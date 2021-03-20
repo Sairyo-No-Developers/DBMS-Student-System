@@ -27,9 +27,9 @@ private:
     vector<Student> list;
 public:
     bool addStudent(Student & s);
-    auto search(string roll) {
+    Student search(string roll) {
         auto result = find_if(this->list.begin(), this->list.end(), [&](const Student &s) { return s.getRoll() == roll; });
-        return (result == this->list.end()) ? nullopt : optional<Student>{*result};
+        return (result == this->list.end()) ? Student("x",-1,"x","x","x") : *result;
     }
 
     vector<Student>::iterator searchGetIndex(string roll);
