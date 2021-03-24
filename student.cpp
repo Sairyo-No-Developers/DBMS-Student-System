@@ -71,3 +71,13 @@ QString Student::toString() {
                + "\n\tphone: " + this->phone
                + "\n}" );
 }
+
+QString Student::display() {
+    return QString::fromStdString(
+                "Roll: " + this->roll
+              + "  Name: " + this->name
+              + "  DeptCode: " + to_string(this->deptCode)
+              + "  Address: " + this->address
+              + "  Phone: " + this->phone + "\n\n"
+    );
+}

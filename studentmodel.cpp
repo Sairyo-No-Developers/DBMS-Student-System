@@ -1,8 +1,24 @@
 #include "studentmodel.h"
 #include "student.h"
+#include "department.h"
 #include <QDebug>
 
 StudentModel *StudentModel::sm = nullptr;
+
+StudentModel::StudentModel() {
+    dl.addDepartment(Department("CSE",101));
+    dl.addDepartment(Department("ETCE",110));
+    dl.addDepartment(Department("EE",111));
+    dl.addDepartment(Department("CHE",011));
+    Student s1("1151",115,"CHemical","JU","8929382903");
+    Student s2("1011",101,"Computer","Prajukti","98920222");
+    Student s3("1101",110,"Mosfet","Prayukti","8676879");
+    Student s4("1111",111,"Megger","Sakti","9920920");
+    sl.addStudent(s1);
+    sl.addStudent(s2);
+    sl.addStudent(s3);
+    sl.addStudent(s4);
+}
 
 bool StudentModel::getAndAddStudent(string name, string roll, string address, string phone, int deptCode) {
     Student s(roll, deptCode, name, address, phone);
@@ -14,6 +30,11 @@ StudentModel  *StudentModel::instance() {
         sm = new StudentModel;
     }
     return sm;
+}
+
+int StudentModel::getDeptCode(string s){
+    auto res = this->dl.getCode(s);
+    return !res.has_value() ? -1 : res.value();
 }
 
 void StudentModel::printAll() {
@@ -35,4 +56,8 @@ bool StudentModel::getAndEditStudent(string roll, string name, string phone, str
 
 vector<Student> StudentModel::getStudentList() {
     return sl.getList();
+}
+
+QList<QString> StudentModel::getDeptNames(){
+    return dl.getNames();
 }

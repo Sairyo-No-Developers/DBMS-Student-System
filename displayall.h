@@ -26,6 +26,7 @@ private:
     vector<Student>::iterator it;
     vector<Student> cache;
     QString displayText;
+    int index;
 };
 
 #endif // DISPLAYALL_H

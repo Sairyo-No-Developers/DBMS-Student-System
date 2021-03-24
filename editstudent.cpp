@@ -9,7 +9,7 @@ EditStudent::EditStudent(QWidget *parent, Student *s) :
     QDialog(parent),
     ui(new Ui::EditStudent)
 {
-    QStringList departments = {"CSE","ETCE","EE"};
+    QStringList departments = StudentModel::instance()->getDeptNames();
     ui->setupUi(this);
     this->student = s;
     ui->depts->addItems(departments);

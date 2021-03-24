@@ -34,6 +34,7 @@ public:
 
     friend ostream & operator << (ostream &out, const Student &s);
     QString toString();
+    QString display();
 };
 
 #endif // STUDENT_H
